@@ -1,0 +1,32 @@
+{
+  "name": "kenutil",
+  "version": "1.0.0",
+  "description": "Utilities for myself",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/yuntianming0310/kenutil.git"
+  },
+  "keywords": [
+    "util",
+    "js"
+  ],
+  "author": "Ken Wen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuntianming0310/kenutil/issues"
+  },
+  "homepage": "https://github.com/yuntianming0310/kenutil#readme",
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}
