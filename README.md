@@ -1,6 +1,6 @@
 # KenUtil
 
-Personal JavaScript utility collection.
+Personal JavaScript/TypeScript utility collection and React Hooks.
 
 ## Install
 
@@ -11,7 +11,11 @@ npm install kenutil
 ## Usage
 
 ```javascript
+// Utility functions
 import { capitalize, debounce, sleep } from 'kenutil';
+
+// React Hooks
+import { useDebounce, useForm, useMediaQuery } from 'kenutil';
 ```
 
 ## API
@@ -50,6 +54,25 @@ import { capitalize, debounce, sleep } from 'kenutil';
 - `readClipboardText()` - Read text from clipboard
 - `downloadFile(url, filename)` - Trigger file download
 - `cn(...args)` - Merge classNames, filter falsy values
+
+### React Hooks
+- `useOutsideClick(handler, listenCapturing?)` - Detect clicks outside an element
+- `useLocalStorageState(initialValue, key)` - Sync state with localStorage
+- `useDebounce(value, delay)` - Debounce a value
+- `useDebouncedCallback(callback, delay)` - Debounce a callback function
+- `useThrottle(value, delay)` - Throttle a value
+- `useThrottledCallback(callback, delay)` - Throttle a callback function
+- `usePrevious(value)` - Track previous value of state/prop
+- `useVisibilityChange()` - Track document visibility state
+- `useIntersectionObserver(options?)` - Observe element visibility with IntersectionObserver
+- `useWindowSize()` - Track window width and height
+- `useIntervalWhen(callback, ms, startImmediately?, condition?)` - Run callback on interval when condition is met
+- `useFetch(url, options?)` - Fetch data with loading and error states
+- `useMediaQuery(query, options?)` - Track media query matches (includes BREAKPOINTS)
+- `useForm(options)` - Lightweight form state management with validation
+- `useOnlineStatus(options?)` - Track online/offline status (simple or enhanced mode)
+- `useHover()` - Track element hover state
+- `useUpdateEffect(effect, deps)` - useEffect that skips initial render
 
 ## License
 
