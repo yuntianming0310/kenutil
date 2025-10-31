@@ -25,6 +25,21 @@ export function downloadFile(url: string, filename: string): void {
   document.body.removeChild(aEl);
 }
 
-export function cn(...args: (string | false | null | undefined)[]): string {
-  return args.filter(Boolean).join(" ");
+export function cn(...args: any[]): string {
+  let str = "";
+  for (const arg of args) {
+    if (!arg) continue;
+    const t = typeof arg;
+    if (t === "string" || t === "number") {
+      str += (str && " ") + arg;
+    } else if (Array.isArray(arg)) {
+      const inner = cn(...arg);
+      if (inner) str += (str && " ") + inner;
+    } else if (t === "object") {
+      for (const key in arg) {
+        if (arg[key]) str += (str && " ") + key;
+      }
+    }
+  }
+  return str;
 }
