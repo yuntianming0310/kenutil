@@ -15,10 +15,13 @@ export function useIntersectionObserver<T extends HTMLElement = HTMLElement>(
   const ref = useRef<T>(null)
   const [isIntersecting, setIsIntersecting] = useState(false)
 
+  // Destructure options to avoid unnecessary re-renders
+  const { root, rootMargin, threshold } = options ?? {}
+
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       setIsIntersecting(entry.isIntersecting)
-    }, options)
+    }, { root, rootMargin, threshold })
 
     const currentRef = ref.current
 
@@ -31,7 +34,7 @@ export function useIntersectionObserver<T extends HTMLElement = HTMLElement>(
         observer.unobserve(currentRef)
       }
     }
-  }, [options])
+  }, [root, rootMargin, threshold])
 
   return [ref, isIntersecting]
 }
