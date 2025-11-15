@@ -53,3 +53,12 @@ export function deepClone<T>(obj: T, cache = new WeakMap()): T {
 
   return cloned;
 }
+
+/**
+ * Piping and Function Composition
+ */
+export function pipe<T>(...fns: Array<(arg: any) => any>) {
+  return function(value: T) {
+    return fns.reduce((acc, fn) => fn(acc), value)
+  }
+}
